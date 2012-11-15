@@ -1,0 +1,102 @@
+ds-aa
+==========
+
+bug1: TopDownClosure.cpp:207
+incomplete call graph traversal in the top-down analysis stage
+
+bug2: StdLibPass.cpp:703
+matched formal argument n to actual argument n + 1
+
+bug3: n/a
+symptom: missed aliases between actual parameters and the return value of an
+indirect call
+
+bug4: Local.cpp:833
+mishandled variable length arguments
+
+bug5: Local.cpp:551
+mishandled inttoptr and ptrtoint instructions
+
+bug6: StdLibPass.cpp
+did not handle errno; pointers returned from errno may alias
+
+bug7: StdLibPass.cpp
+did not handle getpwuid_r and getpwnam_r, whose argument and return value alias
+
+bug8: StdLibPass.cpp
+did not handle gmtime_r-like functions whose return value and the 2nd argument
+alias
+
+bug9: StdLibPass.cpp
+did not handle realpath whose value and the 2nd argument alias
+
+bug10: StdLibPass.cpp
+did not handle getenv whose return value aliases for the same environmental
+variable
+
+bug11: StdLibPass.cpp
+did not handle tzname, an external global variable
+
+bug12: StdLibPass.cpp
+did not handle getservbyname whose return values may alias
+
+bug13: StdLibPass.cpp
+did not handle pthread_getspecific and pthread_setspecific; the value stored via
+pthread_setspecific aliases that loaded via pthread_getspecific with the same
+key
+
+bug14: StdLibPass.cpp
+did not handle strtoll; the dereference of the 2nd argument may alias the 1st
+argument
+
+bug15: StdLibPass.cpp
+did not handle the ctype family of functions; the return value of
+__ctype_b_loc-like function may alias
+
+bug16: StdLibPass.cpp
+did not handle freopen whose return value may alias stdin, stdout, or stderr
+
+anders-aa
+==========
+bug17: Andersens.cpp:1882
+HUValNum incorrectly marked a pointer as pointing to nothing.
+
+bug18: Andersens.cpp:2588
+mishandled indirect call arguments; points-to edge to argument n may be attached
+to argument n +/- 1
+
+bug19: Andersens.cpp:2585
+points-to nodes representing indirect calls are swapped, but argument info is
+not updated accordingly
+
+bug20: Andersens.cpp:764
+queries on a function pointer and a function always return no alias, even though
+they do alias
+
+bug21: Andersens.cpp
+did not handle inttoptr and ptrtoint instrucitons
+
+bug22: Andersens.cpp
+did not handle extractvalue and insertvalue instructions
+
+bug23: Andersens.cpp:924
+incorrect summary for freopen whose return value may alias the 3rd argument
+
+bug24: Andersens.cpp
+did not handle __cxa_atexit
+
+bug25: Andersens.cpp
+mishandled variable length arguments
+
+bug26: Andersens.cpp
+did not handle pthread_create
+
+bug27: Andersens.cpp
+did not handle pthread_getspecific and pthread_setspecific
+
+bug28: Andersens.cpp
+did not handle strcpy, stpcpy and strcat whose return value aliases the 1st
+argument
+
+bug29: Andersens.cpp
+did not handle getcwd and realpath
