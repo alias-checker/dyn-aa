@@ -1,3 +1,5 @@
 bug-list.txt contains a list of all the bugs we found in anders-aa and ds-aa.
 
 bug<N>.patch fixes bug N mentioned in the paper.
+
+<prog>.<aa>.report is the errors reported on <aa> with <prog>.
