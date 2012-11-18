@@ -2,7 +2,7 @@ Building the system
 ====================
 
 Build repo rcs first. See rcs/README.
-./configure --with-rcssrc=<rcs srouce directory> --with-rcsobj=<rcs object directory> --prefix=`llvm-config --prefix`
+./configure --with-rcssrc=<rcs source directory> --with-rcsobj=<rcs object directory> --prefix=`llvm-config --prefix`
 make
 make install
 
@@ -35,4 +35,3 @@ dynaa_check_aa.py hello.bc hello.pts basicaa
 Utilities
 --------------------
 dynaa_dump_log -log-file hello.pts > hello.log
-
