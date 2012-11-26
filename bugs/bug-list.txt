@@ -2,16 +2,21 @@ ds-aa
 ==========
 
 bug1: TopDownClosure.cpp:207
+[confirmed by developer]
 incomplete call graph traversal in the top-down analysis stage
 
 bug2: StdLibPass.cpp:703
+[confirmed by developer]
 matched formal argument n to actual argument n + 1
 
-bug3: n/a
+bug3: TopDownClosure.cpp:80
+[confirmed by developer]
 symptom: missed aliases between actual parameters and the return value of an
 indirect call
+root cause: incorrectly cleared AuxCalls in the top-down analysis stage.
 
 bug4: Local.cpp:833
+[confirmed by developer]
 mishandled variable length arguments
 
 bug5: Local.cpp:551
