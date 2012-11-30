@@ -2,12 +2,11 @@ diff --git a/lib/Andersens/Andersens.cpp b/lib/Andersens/Andersens.cpp
 index 462428a..38e293b 100644
 --- a/lib/Andersens/Andersens.cpp
 +++ b/lib/Andersens/Andersens.cpp
-@@ -798,6 +798,11 @@ void Andersens::IdentifyObjects(Module &M) {
+@@ -798,6 +798,10 @@ void Andersens::IdentifyObjects(Module &M) {
      ObjectNodes[I] = NumObjects++;
      ValueNodes[I] = NumObjects++;
    }
 +  for (Module::iterator F = M.begin(), E = M.end(); F != E; ++F) {
-+    // Added by Jingyue
 +    // The function itself is a memory object.
 +    ObjectNodes[F] = NumObjects++;
 +  }
@@ -18,13 +17,13 @@ index 462428a..38e293b 100644
      }
    }
  
-+  // Added by Jingyue
 +  for (Module::iterator F = M.begin(); F != M.end(); ++F) {
 +    unsigned ObjectIndex = getObject(F);
 +    Node *Object = &GraphNodes[ObjectIndex];
 +    Object->setValue(F);
 +    Constraints.push_back(Constraint(Constraint::AddressOf, getNodeValue(*F),
 +                                     ObjectIndex));
++    AddConstraintForConstantPointer(F);
 +  }
 +
    for (Module::iterator F = M.begin(), E = M.end(); F != E; ++F) {

@@ -2,13 +2,12 @@ diff --git a/lib/Andersens/Andersens.cpp b/lib/Andersens/Andersens.cpp
 index 0a04038..6959b24 100644
 --- a/lib/Andersens/Andersens.cpp
 +++ b/lib/Andersens/Andersens.cpp
-@@ -70,6 +70,7 @@
+@@ -70,5 +70,6 @@
  #include "llvm/ADT/Statistic.h"
  #include "llvm/ADT/SparseBitVector.h"
  #include "llvm/ADT/DenseSet.h"
 +#include "llvm/IntrinsicInst.h"
  
- // Added by Jingyue
  #include "rcs/Version.h"
 @@ -1106,6 +1107,28 @@ bool Andersens::AddConstraintsForExternalCall(CallSite CS, Function *F) {
      }
